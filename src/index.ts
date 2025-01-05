@@ -3,6 +3,15 @@ import configs from "./config";
 import expressApp from "./express-app";
 import { databaseConnection } from "./database";
 
+/**
+ * Starts the Express server.
+ *
+ * @remarks
+ * This function is responsible for establishing a database connection,
+ * setting up the Express app, and starting the server.
+ *
+ * @returns {Promise<void>}
+ */
 const StartServer = async () => {
     const app = express();
     await databaseConnection();

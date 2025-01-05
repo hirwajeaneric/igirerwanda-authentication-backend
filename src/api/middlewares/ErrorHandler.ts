@@ -8,6 +8,15 @@ interface CustomError extends Error {
   value?: string;
 }
 
+/**
+ * Centralized error handling middleware.
+ * @function
+ * @param {CustomError} err - The error object.
+ * @param {Request} req - The Express request object.
+ * @param {Response} res - The Express response object.
+ * @param {NextFunction} next - The next middleware function.
+ * @returns {Response} - The response to the client.
+ */
 const ErrorHandlerMiddleware = ( err: CustomError, req: Request, res: Response, next: NextFunction ) => {
   let errStatus: number = err.statusCode || 500;
   let errMessage: string = err.message || "Internal Server Error";

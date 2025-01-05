@@ -1,6 +1,14 @@
 import accessTokenModel from "../models/token.model";
 
 export default class AccessTokenRepository {
+    /**
+     * Creates an access token for a given user in a given app.
+     * @param token The value of the access token.
+     * @param appId The ID of the app for which the access token is being created.
+     * @param userId The ID of the user for which the access token is being created.
+     * @returns The newly created access token document.
+     * @throws Error If there is an error while creating the access token.
+     */
     async createAccessToken(token: string, appId: string, userId: string) {
         try {
             return await accessTokenModel.create({ token, appId, userId });
@@ -10,6 +18,12 @@ export default class AccessTokenRepository {
         }
     }
 
+    /**
+     * Finds an access token document by its value.
+     * @param token The value of the access token to find.
+     * @returns The access token document if found, or null if not found.
+     * @throws Error If there is an error while finding the access token.
+     */
     async findAccessTokenByToken(token: string) {
         try {
             return await accessTokenModel.findOne({ token });
@@ -19,6 +33,13 @@ export default class AccessTokenRepository {
         }
     }
 
+    /**
+     * Deletes an access token document by its value.
+     * 
+     * @param token The value of the access token to delete.
+     * @returns The result of the deletion operation.
+     * @throws Error If there is an error while deleting the access token.
+     */
     async deleteAccessTokenByToken(token: string) {
         try {
             return await accessTokenModel.deleteOne({ token });
@@ -28,6 +49,14 @@ export default class AccessTokenRepository {
         }
     }
 
+    /**
+     * Deletes an access token document by its app ID and user ID.
+     * 
+     * @param appId The ID of the app for which the access token is to be deleted.
+     * @param userId The ID of the user for which the access token is to be deleted.
+     * @returns The result of the deletion operation.
+     * @throws Error If there is an error while deleting the access token.
+     */
     async deleteAccessTokenByAppIdAndUserId(appId: string, userId: string) {
         try {
             return await accessTokenModel.deleteOne({ appId, userId });

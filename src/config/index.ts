@@ -12,6 +12,7 @@ if (process.env.NODE_ENV !== "prod") {
 export default {
   PORT: process.env.PORT,
   DB_URL: process.env.DATABASE_URL,
-  APP_SECRET: process.env.APP_SECRET,
+  APP_SECRET: process.env.SECRET_KEY,
   CLIENT_URL: process.env.CLIENT_URL,
+  MAX_TOKEN_DURATION: process.env.MAX_TOKEN_DURATION
 };

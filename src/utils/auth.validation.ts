@@ -24,6 +24,14 @@ export const validateUserSignIn: RequestHandler[] = [
         .withMessage('Password is required')
         .isStrongPassword()
         .withMessage('Password must be at least 6 characters with an Upper case character, lower case character, symbol and digit.'),
+    body('redirectUrl')
+        .not()
+        .isEmpty()
+        .withMessage('Redirect URL is required'),
+    body('redirectAppId')
+        .not()
+        .isEmpty()
+        .withMessage('Redirect App ID is required'),
     handleValidationErrors
 ];
 

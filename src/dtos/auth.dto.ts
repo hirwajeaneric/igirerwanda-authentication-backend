@@ -4,12 +4,10 @@ export interface IUserPayload {
     _id: string;
     email: string;
     accountStatus: string;
-    apps: {
+    app: {
         appId: string;
-        appLabel: string;
-        appAddress: string;
         permission: string;
-    }[]
+    }
 }
 
 export interface IUser extends Document {
@@ -22,8 +20,6 @@ export interface IUser extends Document {
     salt: string;
     apps: {
         appId: string;
-        appLabel: string;
-        appAddress: string;
         permission: string;
     }[];
 }

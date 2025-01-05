@@ -38,14 +38,6 @@ const UserSchema = new mongoose.Schema({
                     type: String,
                     required: true,
                 },
-                appLabel: { 
-                    type: String,
-                    required: true,
-                },
-                appAddress: {
-                    type: String,
-                    required: true,
-                },
                 permission: {
                     type: String,
                     enum: { 
